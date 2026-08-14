@@ -108,7 +108,11 @@ int main(void)
      *
      * BACKLOG を使用する。
      */
-	listen(server_fd, BACKLOG);
+	if (listen(server_fd, BACKLOG) < 0) {
+		perror("ERROR on listening");
+		close(server_fd);
+		exit(EXIT_FAILURE);
+	}
 
     printf("Telemetry Server listening on port %d\n", DEFAULT_PORT);
 
