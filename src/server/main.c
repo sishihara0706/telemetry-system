@@ -141,6 +141,10 @@ int main(void)
          */
 		client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &client_addr_len);
 		if(client_fd < 0) {
+			if(errno == EINTR && g_stop_requested) {
+				break;
+			}
+
 			perror("ERROR on accepting");
 			close(server_fd);
 			exit(EXIT_FAILURE);
