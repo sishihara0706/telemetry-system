@@ -177,6 +177,7 @@ int main(void)
                  *
                  * received バイトだけ扱う方法を考える。
                  */
+				buffer[received] = '\0';
 				printf("Received item: %s\n", buffer);
 
             } else if (received == 0) {
