@@ -57,7 +57,7 @@ int main(void)
 	server_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (server_fd < 0) {
 		perror("ERROR opening socket");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
     /*
