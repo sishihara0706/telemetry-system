@@ -6,8 +6,9 @@ C11 と POSIX Socket API を用いた、装置テレメトリ監視システム�
 
 ## Project Status
 
-- 現在地: Issue #3 の実装と PR #31 は完了・マージ済みです。
-- 次のアクション: [Issue #11 — Implement Device Simulator TCP Client](https://github.com/sishihara0706/telemetry-system/issues/11) を実装します。
+- 現在地:[Issue #11 — Implement Device Simulator TCP Client](https://github.com/sishihara0706/telemetry-system/issues/11) が完了・クローズ済みです。
+- Issue #11 は、本来 Issue #3 の次に取り組む予定の Issue でした。
+- 次のタスクは[Issue #4 - Generate Telemetry Data Periodically](https://github.com/sishihara0706/telemetry-system/issues/4)です。
 - Issue 番号は、起票の経緯により実装順ではありません。
 
 ## Build
