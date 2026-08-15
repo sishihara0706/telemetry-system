@@ -17,7 +17,7 @@ int main(void)
 
 	client_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if(client_fd < 0) {
-		perror("ERROR socket error");
+		perror("socket");
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,20 +25,20 @@ int main(void)
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(DEFAULT_PORT);
 	if(inet_pton(AF_INET, SERVER_IP, &server_addr.sin_addr) != 1) {
-		perror("ERROR inet_pton");
+		perror("inet_pton");
 		close(client_fd);
 		exit(EXIT_FAILURE);
 	}
 
 	if(connect(client_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-		perror("ERROR socket error");
+		perror("connect");
 		close(client_fd);
 		exit(EXIT_FAILURE);
 	}
 	
 	ssize_t send_n = send(client_fd, message, strlen(message), 0);
 	if (send_n < 0) {
-		perror("ERROR on sending");
+		perror("send");
 		close(client_fd);
 		exit(EXIT_FAILURE);
 	}
