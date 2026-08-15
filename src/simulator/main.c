@@ -36,7 +36,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	ssize_t message_len = strlen(message);
+	size_t message_len = strlen(message);
 	
 	ssize_t send_n = send(client_fd, message, strlen(message), 0);
 
@@ -49,7 +49,7 @@ int main(void)
 
 	// 要求した全バイトを遅れたかを確かめている
 	// ここに引っかかるということは未送信のバイトがある
-	if (send_n != message_len) {
+	if ((size_t)send_n != message_len) {
 		fprintf(stderr, "partial send\n");
 		// partail send = 部分的な送信
 		close(client_fd);
