@@ -8,14 +8,12 @@
 
 #define SERVER_IP "127.0.0.1"
 #define DEFAULT_PORT 9000
-#define BUFFER_SIZE 1024
 
 int main(void)
 {
 	int client_fd;
 	struct sockaddr_in server_addr;
     char message[] = "Hello Server";
-    //char buffer[BUFFER_SIZE] = {0};
 
 	client_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if(client_fd < 0) {
@@ -45,21 +43,6 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	//ssize_t read_n = read(client_fd, buffer, BUFFER_SIZE - 1);
-	
-	//if (read_n < 0) {
-		//perror("ERROR on reading");
-		//close(client_fd);
-		//exit(EXIT_FAILURE);
-	//}
-	//if( read_n == 0 ) {
-		//printf("server closed connection\n");
-	//}
-	//else {
-		//buffer[read_n] = '\n';
-		//printf("Server reply: %s\n", buffer);
-	//}
-	//
 	close(client_fd);
 
     return 0;
