@@ -38,21 +38,14 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	
-	while (1) {
-		printf(">");
-		scanf("%s", message);
-
-		if (strncmp(message, "q", 1) == 0 ) {
-			printf("'q' is pressed. Quit this app.\n");
-			break;
-		}
-		
-		ssize_t send_n = send(client_fd, message, strlen(message), 0);
-		if (send_n < 0) {
-			perror("ERROR on sending");
-			close(client_fd);
-			exit(EXIT_FAILURE);
-		}
+	printf(">");
+	scanf("%s", message);
+	
+	ssize_t send_n = send(client_fd, message, strlen(message), 0);
+	if (send_n < 0) {
+		perror("ERROR on sending");
+		close(client_fd);
+		exit(EXIT_FAILURE);
 	}
 
 	//ssize_t read_n = read(client_fd, buffer, BUFFER_SIZE - 1);
@@ -70,7 +63,7 @@ int main(void)
 		//printf("Server reply: %s\n", buffer);
 	//}
 	//
-	//close(client_fd);
+	close(client_fd);
 
     return 0;
 }
