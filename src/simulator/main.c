@@ -13,7 +13,7 @@ int main(void)
 {
 	int client_fd;
 	struct sockaddr_in server_addr;
-    char message[] = "Hello Server";
+    const char message[] = "Hello Server";
 
 	client_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if(client_fd < 0) {
