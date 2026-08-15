@@ -38,9 +38,6 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	
-	printf(">");
-	scanf("%s", message);
-	
 	ssize_t send_n = send(client_fd, message, strlen(message), 0);
 	if (send_n < 0) {
 		perror("ERROR on sending");
